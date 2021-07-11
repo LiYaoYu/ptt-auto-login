@@ -9,7 +9,6 @@ _output_mode = False
 _host = "ptt.cc"
 _user = "bbsu"
 _pass = ""
-_key_file = "Your SSH private key path"
 
 _ptt_username = "Your Ptt username"
 _ptt_passwd = "Your Ptt password"
@@ -33,7 +32,6 @@ def interact(chan, content):
 
 def main():
     client = paramiko.SSHClient()
-    client.load_host_keys(_key_file)
     client.set_missing_host_key_policy(paramiko.AutoAddPolicy())
     client.connect(hostname = _host, username = _user, password = _pass)
 
