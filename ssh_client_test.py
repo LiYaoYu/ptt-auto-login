@@ -32,8 +32,8 @@ def interact(chan, content):
 
 def main():
     client = paramiko.SSHClient()
-    client.set_missing_host_key_policy(paramiko.AutoAddPolicy())
-    client.connect(hostname = _host, username = _user, password = _pass)
+    client.load_system_host_keys()
+    client.connect(_host, username = _user, password = _pass, look_for_keys = False)
 
     chan = client.invoke_shell()
 
